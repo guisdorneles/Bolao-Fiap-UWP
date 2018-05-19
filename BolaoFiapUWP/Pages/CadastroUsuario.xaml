@@ -5,10 +5,23 @@
     xmlns:local="using:BolaoFiapUWP.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <Grid>
-
+    mc:Ignorable="d">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel HorizontalAlignment="Center">
+            <TextBlock Text="Nome" FontSize="18" />
+            <TextBox Width="360px" />
+            <TextBlock Text="Email" FontSize="18" />
+            <TextBox Width="360px" />
+            <TextBlock Text="CPF" FontSize="18" />
+            <TextBox Width="360px" />
+            <TextBlock Text="Senha" FontSize="18" />
+            <PasswordBox Width="360px" />
+            <TextBlock Text="Repetir Senha" FontSize="18" />
+            <PasswordBox Width="360px" />
+            <TextBlock Text="Data de nascimento" FontSize="18" />
+            <CalendarDatePicker x:Name="D" PlaceholderText="dd/mm/aaaa" Width="360px"/>
+            <Button Tag="Cadastrar" Content="Cadastrar" Margin="12" Click="Button_Click" />
+            <Button Tag="Cancelar" Content="Cancelar" Margin="12" Click="Button_Click"  />
+        </StackPanel>
     </Grid>
 </Page>

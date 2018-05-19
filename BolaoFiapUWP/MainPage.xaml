@@ -15,7 +15,7 @@
             <TextBox Width="400px" />
             <TextBlock Text="Senha" FontSize="18" />
             <PasswordBox  Width="400px" />
-            <Button Tag="Inicio" Content="Conectar-se" Margin="12" Click="Button_Click" />
+            <Button Tag="Home" Content="Conectar-se" Margin="12" Click="Button_Click" />
             <Button Tag="Cadastro" Content="Cadastrar-se" Margin="12" Click="Button_Click"  />
         </StackPanel>
     </Grid>

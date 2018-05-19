@@ -26,5 +26,20 @@ namespace BolaoFiapUWP.Pages
         {
             this.InitializeComponent();
         }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            switch (((Button)sender).Tag)
+            {
+                case "Cadastrar":
+                    Frame.Navigate(typeof(Home));
+                    //Colocar a rotina de cadastro aqui 
+                    break;
+                case "Cancelar":
+                    Frame.Navigate(typeof(MainPage));
+                    break;
+
+            }
+        }
     }
 }

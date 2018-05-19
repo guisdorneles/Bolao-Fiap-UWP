@@ -32,8 +32,8 @@ namespace BolaoFiapUWP
 
             switch (((Button)sender).Tag)
             {
-                case "Inicio":
-                    Frame.Navigate(typeof(Inicio));
+                case "Home":
+                    Frame.Navigate(typeof(Home));
                     break;
                 case "Cadastro":
                     Frame.Navigate(typeof(CadastroUsuario));
