@@ -20,8 +20,8 @@
             <PasswordBox Width="360px" />
             <TextBlock Text="Data de nascimento" FontSize="18" />
             <CalendarDatePicker x:Name="D" PlaceholderText="dd/mm/aaaa" Width="360px"/>
-            <Button Tag="Cadastrar" Content="Cadastrar" Margin="12" Click="Button_Click" />
-            <Button Tag="Cancelar" Content="Cancelar" Margin="12" Click="Button_Click"  />
         </StackPanel>
+        <Button Tag="Cadastrar" Content="Cadastrar" Margin="112,365,0,0" Click="Button_Click" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Button Tag="Cancelar" Content="Cancelar" Margin="18,365,0,0" Click="Button_Click" HorizontalAlignment="Left" VerticalAlignment="Top"  />
     </Grid>
 </Page>
