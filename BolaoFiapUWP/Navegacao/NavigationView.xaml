@@ -5,19 +5,18 @@
     xmlns:local="using:BolaoFiapUWP.Navegacao"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    mc:Ignorable="d">
+    <!--Blibloteca com os nomes dos incones no uwp-->
+    <!--https://docs.microsoft.com/en-us/windows/uwp/design/style/segoe-ui-symbol-font -->
     <NavigationView Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-                    IsSettingsVisible="True"
+                    IsSettingsVisible="False"
                     ItemInvoked="NavigationView_ItemInvoked"
                     Name="NavView">
 
         <NavigationView.MenuItems>
             <NavigationViewItem Content="Home" Icon="Home" Tag="Home" />
             <NavigationViewItemSeparator/>
-            <NavigationViewItemHeader Content="Páginas"/>
-            <NavigationViewItem Icon="AllApps" Content="Página 1" Tag="pg1" />
+            <NavigationViewItem Icon="Document" Content="Novo Bolão" Tag="CadastroBolao" />
             <!--Colocar as paginas aqui-->
         </NavigationView.MenuItems>
 

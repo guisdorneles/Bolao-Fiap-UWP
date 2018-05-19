@@ -33,11 +33,7 @@ namespace BolaoFiapUWP.Navegacao
 
         private void NavigationView_ItemInvoked(Windows.UI.Xaml.Controls.NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
-            if (args.IsSettingsInvoked)
-            {
-                ContentFrame.Navigate(typeof(Canvas));
-            }
-            else
+            if (!args.IsSettingsInvoked)
             {
                 // find NavigationViewItem with Content that equals InvokedItem
                 var item = sender.MenuItems.OfType<NavigationViewItem>().First(x => (string)x.Content == (string)args.InvokedItem);
@@ -52,6 +48,10 @@ namespace BolaoFiapUWP.Navegacao
                 case "Inicio":
                     ContentFrame.Navigate(typeof(Home));
                     break;
+                case "Cadastro":
+                    ContentFrame.Navigate(typeof(Home));
+                    break;
+                    //Colocar aqui as paginas para ser chamadas ao clicar no menu
             }
         }
 
@@ -69,28 +69,21 @@ namespace BolaoFiapUWP.Navegacao
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
                 ContentFrame.CanGoBack ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
 
-            if (ContentFrame.SourcePageType == typeof(Canvas))
-            {
-                NavView.SelectedItem = NavView.SettingsItem as NavigationViewItem;
-            }
-            else
-            {
-
-                Dictionary<Type, string> lookup = new Dictionary<Type, string>()
+            Dictionary<Type, string> lookup = new Dictionary<Type, string>()
                 {
                     {typeof(Home), "Home"},
                 };
 
-                String stringTag = lookup[ContentFrame.SourcePageType];
+            String stringTag = lookup[ContentFrame.SourcePageType];
 
-                var navItem = NavView.MenuItems.FirstOrDefault(item => item is NavigationViewItem && ((NavigationViewItem)item).Tag.Equals(stringTag)) as NavigationViewItem;
+            var navItem = NavView.MenuItems.FirstOrDefault(item => item is NavigationViewItem && ((NavigationViewItem)item).Tag.Equals(stringTag)) as NavigationViewItem;
 
-                if (navItem != null)
-                {
-                    navItem.IsSelected = true;
-                }
-
+            if (navItem != null)
+            {
+                navItem.IsSelected = true;
             }
+
         }
     }
 }
+
