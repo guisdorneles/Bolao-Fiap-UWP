@@ -17,6 +17,7 @@
             <NavigationViewItem Content="Home" Icon="Home" Tag="Home" />
             <NavigationViewItemSeparator/>
             <NavigationViewItem Icon="Document" Content="Novo Bolão" Tag="CadastroBolao" />
+            <NavigationViewItem  Icon="Back" Content="Sair" Tag="Sair" />
             <!--Colocar as paginas aqui-->
         </NavigationView.MenuItems>
 

@@ -48,9 +48,13 @@ namespace BolaoFiapUWP.Navegacao
                 case "Inicio":
                     ContentFrame.Navigate(typeof(Home));
                     break;
-                case "Cadastro":
-                    ContentFrame.Navigate(typeof(Home));
+                case "CadastroBolao":
+                    ContentFrame.Navigate(typeof(CadastroBolao));
                     break;
+                case "Sair":
+                    ContentFrame.Navigate(typeof(MainPage));
+                    break;
+
                     //Colocar aqui as paginas para ser chamadas ao clicar no menu
             }
         }
@@ -72,6 +76,8 @@ namespace BolaoFiapUWP.Navegacao
             Dictionary<Type, string> lookup = new Dictionary<Type, string>()
                 {
                     {typeof(Home), "Home"},
+                    {typeof(CadastroBolao), "CadastroBolao"},
+                    {typeof(MainPage), "Sair"},
                 };
 
             String stringTag = lookup[ContentFrame.SourcePageType];

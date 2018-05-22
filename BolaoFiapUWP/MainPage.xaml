@@ -12,11 +12,25 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel HorizontalAlignment="Center">
             <TextBlock Text="Email" FontSize="18" />
-            <TextBox Width="400px" />
+            <TextBox x:Name="txtEmail" Width="400px" />
             <TextBlock Text="Senha" FontSize="18" />
-            <PasswordBox  Width="400px" />
+            <PasswordBox x:Name="txtPassword" Width="400px" />
             <Button Tag="Home" Content="Conectar-se" Margin="12" Click="Button_Click" />
             <Button Tag="Cadastro" Content="Cadastrar-se" Margin="12" Click="Button_Click"  />
         </StackPanel>
+        
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="VisualStateMinWidth700">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="700"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="txtEmail.(UIElement.Visibility)" Value="Visible"/>
+                        <Setter Target="txtPassword.(UIElement.Visibility)" Value="Visible"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>
