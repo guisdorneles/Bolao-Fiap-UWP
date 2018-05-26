@@ -52,7 +52,9 @@ namespace BolaoFiapUWP.Navegacao
                     ContentFrame.Navigate(typeof(CadastroBolao));
                     break;
                 case "Sair":
-                    ContentFrame.Navigate(typeof(MainPage));
+                    //Rotina para deslogar
+                    Frame rootFrame = Window.Current.Content as Frame;
+                    rootFrame.Navigate(typeof(MainPage));
                     break;
 
                     //Colocar aqui as paginas para ser chamadas ao clicar no menu

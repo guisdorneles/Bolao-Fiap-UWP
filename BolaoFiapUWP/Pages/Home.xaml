@@ -7,24 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <NavigationView Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-                    IsSettingsVisible="True"
-                    ItemInvoked="NavigationView_ItemInvoked"
-                    Name="NavView">
-
-        <NavigationView.MenuItems>
-            <NavigationViewItem Content="Home" Icon="Home" Tag="Inicio" />
-            <NavigationViewItemSeparator/>
-            <NavigationViewItemHeader Content="Páginas"/>
-            <NavigationViewItem Icon="AllApps" Content="Página 1" Tag="pg1" />
-            <!--Colocar as paginas aqui-->
-        </NavigationView.MenuItems>
-
-        <NavigationView.Content>
-            <Frame x:Name="ContentFrame" Margin="24" Navigated="On_Navigated">
-
-            </Frame>
-        </NavigationView.Content>
-
-    </NavigationView>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    </Grid>
 </Page>
