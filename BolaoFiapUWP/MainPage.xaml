@@ -5,32 +5,36 @@
     xmlns:local="using:BolaoFiapUWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    d:DesignHeight="300"
-    d:DesignWidth="400">
+    mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel HorizontalAlignment="Center">
-            <TextBlock Text="Email" FontSize="18" />
-            <TextBox x:Name="txtEmail" Width="400px" />
-            <TextBlock Text="Senha" FontSize="18" />
-            <PasswordBox x:Name="txtPassword" Width="400px" />
-            <Button Tag="Home" Content="Conectar-se" Margin="12" Click="Button_Click" />
-            <Button Tag="Cadastro" Content="Cadastrar-se" Margin="12" Click="Button_Click"  />
-        </StackPanel>
-        
         <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="VisualStateGroup">
-                <VisualState x:Name="VisualStateMinWidth700">
+            <VisualStateGroup>
+                <VisualState>
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="700"/>
+                        <AdaptiveTrigger MinWindowWidth="720" />
                     </VisualState.StateTriggers>
+
                     <VisualState.Setters>
-                        <Setter Target="txtEmail.(UIElement.Visibility)" Value="Visible"/>
-                        <Setter Target="txtPassword.(UIElement.Visibility)" Value="Visible"/>
+                        <Setter Target="formLogin1.(RelativePanel.RightOf)" Value=""/>
+                        <Setter Target="formLogin2.(RelativePanel.RightOf)" Value="formLogin1"/>
+                        <Setter Target="formLogin2.(Margin)" Value="20, -60, 50, 0" />
+                        <Setter Target="formLoginBtns.(RelativePanel.Below)" Value="formLogin1"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+        <RelativePanel>
+            <StackPanel Margin="20 0 0 0" HorizontalAlignment="Center" x:Name="formLogin1">
+                <TextBox Header="Email" x:Name="txtEmail" Width="330" />
+            </StackPanel>
+            <StackPanel Margin="20 0 0 0" x:Name="formLogin2" RelativePanel.Below ="formLogin1">
+                <PasswordBox x:Name="txtPassword" Header="Senha" Width="330" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10 80 0 0"  x:Name="formLoginBtns" RelativePanel.Below="formLogin2">
+                <Button Tag="Home" Content="Conectar-se" Margin="12" Click="Button_Click" />
+                <Button Tag="Cadastro" Content="Cadastrar-se" Margin="12" Click="Button_Click"  />
+            </StackPanel>
+        </RelativePanel>
     </Grid>
 </Page>

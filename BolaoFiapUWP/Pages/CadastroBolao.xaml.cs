@@ -22,24 +22,24 @@ namespace BolaoFiapUWP.Pages
     /// </summary>
     public sealed partial class CadastroBolao : Page
     {
+        List<string> times = new List<string>();
         public CadastroBolao()
         {
             this.InitializeComponent();
+            times.Add("Liga dos Campeões da Europa");    
+
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void SalvarButton_Click(object sender, RoutedEventArgs e)
         {
+            Frame.Navigate(typeof(MainPage));
+            //Colocar a rotina de cadastro aqui 
 
-            switch (((Button)sender).Tag)
-            {
-                case "Cadastrar":
-                    Frame.Navigate(typeof(Home));
-                    //Colocar a rotina de cadastro aqui 
-                    break;
-                case "Cancelar":
-                    Frame.Navigate(typeof(Home));
-                    break;
+        }
 
-            }
+        private void CancelarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+
         }
     }
 }

@@ -7,21 +7,39 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel HorizontalAlignment="Center">
-            <TextBlock Text="Nome" FontSize="18" />
-            <TextBox Width="360px" />
-            <TextBlock Text="Email" FontSize="18" />
-            <TextBox Width="360px" />
-            <TextBlock Text="CPF" FontSize="18" />
-            <TextBox Width="360px" />
-            <TextBlock Text="Senha" FontSize="18" />
-            <PasswordBox Width="360px" />
-            <TextBlock Text="Repetir Senha" FontSize="18" />
-            <PasswordBox Width="360px" />
-            <TextBlock Text="Data de nascimento" FontSize="18" />
-            <CalendarDatePicker x:Name="D" PlaceholderText="dd/mm/aaaa" Width="360px"/>
-        </StackPanel>
-        <Button Tag="Cadastrar" Content="Cadastrar" Margin="112,365,0,0" Click="Button_Click" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <Button Tag="Cancelar" Content="Cancelar" Margin="18,365,0,0" Click="Button_Click" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="780" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <Setter Target="formCadastroUsuario1.(RelativePanel.RightOf)" Value=""/>
+                        <Setter Target="formCadastroUsuario2.(RelativePanel.RightOf)" Value="formCadastroUsuario1"/>
+                        <Setter Target="formCadastroUsuario2.Margin" Value="20,-252,20,253"/>
+                        <Setter Target="formCadastroUsuarioBtns.(RelativePanel.Below)" Value="formCadastroUsuario1"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <RelativePanel>
+            <StackPanel Margin="20 0 0 0" x:Name="formCadastroUsuario1">
+                <TextBlock Text="Novo Usuário" Style="{StaticResource TitleTextBlockStyle}"/>
+                <!--<Button Height="100" Width="100" Background="LightGray" Content="Add photo" Margin="0,24" Click="AddPhotoButton_Click"/>-->
+                <TextBox x:Name="txtNome" Header= "Nome" Margin="0,24,0,0" MaxLength="32" Width="400" HorizontalAlignment="Left" />
+                <TextBox x:Name="txtEmail" RelativePanel.RightOf="txtNome" Header="E-mail"  Margin="0,24,0,0" MaxLength="15" Width="400" HorizontalAlignment="Left" />
+                <TextBox x:Name="txtCpf" Header="CPF" Margin="0,24,0,0" MaxLength="50" Width="400" HorizontalAlignment="Left" />
+            </StackPanel>
+            <StackPanel Margin="20 0 0 0" x:Name="formCadastroUsuario2" RelativePanel.Below="formCadastroUsuario1">
+                <PasswordBox x:Name="pswSenha" Header="Senha" PlaceholderText="Address" Margin="0,24,0,0" MaxLength="50" Width="400" HorizontalAlignment="Left" />
+                <PasswordBox x:Name="pswSenha2" Header="Repetir Senha" Margin="0,24,0,0" MaxLength="50" Width="400" HorizontalAlignment="Left" />
+                <CalendarDatePicker x:Name="dtNascimento" Header="Data de Nascimento" Margin="0,24,0,0" PlaceholderText="dd/mm/aaaa"  Width="300" HorizontalAlignment="Left" />
+            </StackPanel>
+            <StackPanel x:Name="formCadastroUsuarioBtns" Orientation="Horizontal" Margin="20 0 0 -80" RelativePanel.AlignBottomWith="formCadastroUsuario2">
+                <Button Content="Cadastrar" Margin="0 0 10 0" Tag="Cadastrar" Click="SalvarButton_Click"/>
+                <Button Content="Cancelar" Margin="0 0 0 0" Tag="Cancelar" Click="CancelarButton_Click"/>
+            </StackPanel>
+        </RelativePanel>
     </Grid>
 </Page>

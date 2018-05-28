@@ -47,6 +47,7 @@ namespace BolaoFiapUWP
 
             }
         }
+    
         private void Notificacao(string titulo, string msg)
         {
             XmlDocument toastXml = new XmlDocument();

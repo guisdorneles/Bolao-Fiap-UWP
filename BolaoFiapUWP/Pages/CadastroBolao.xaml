@@ -6,24 +6,38 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel HorizontalAlignment="Center">
-            <TextBlock Text="Cadastro de um novo Bolão" FontSize="20" />
-            <TextBlock Text="Nome" FontSize="18" />
-            <TextBox Width="360px" />
-            <TextBlock Text="Descrição" FontSize="18"/>
-            <TextBox Width="360px" HorizontalAlignment="Center" Height="67" Margin="0,0,0,0" VerticalAlignment="Top" />
-            <TextBlock Text="CPF" FontSize="18" />
-            <TextBox Width="360px" />
-            <TextBlock Text="Senha" FontSize="18" />
-            <PasswordBox Width="360px" />
-            <TextBlock Text="Repetir Senha" FontSize="18" />
-            <PasswordBox Width="360px" />
-            <TextBlock Text="Data de nascimento" FontSize="18" />
-            <CalendarDatePicker x:Name="D" PlaceholderText="dd/mm/aaaa" Width="360px"/>
 
-        </StackPanel>
-        <Button Tag="Cadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="115,433,0,0" Click="Button_Click" VerticalAlignment="Top" />
-        <Button Tag="Cancelar" Content="Cancelar"  Margin="10,433,0,0" Click="Button_Click" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <Setter Target="formCadastroBolao1.(RelativePanel.RightOf)" Value=""/>
+                        <Setter Target="formCadastroBolao2.(RelativePanel.RightOf)" Value="formCadastroBolao1"/>
+                        <Setter Target="formCadastroBolao2.Margin" Value="20,-192,20,253"/>
+                        <Setter Target="formCadastroBtns.(RelativePanel.Below)" Value="formCadastroBolao1"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <RelativePanel>
+            <StackPanel Margin="10 0 0 0" HorizontalAlignment="Center" x:Name="formCadastroBolao1">
+                <TextBlock Text="Cadastro de um novo Bolão" FontSize="20" Style="{StaticResource TitleTextBlockStyle}"/>
+                <TextBox Header="Nome" x:Name="txtNome" Width="360px" />
+                <TextBox x:Name="txtDescricao" Header="Descrição" Width="360px" HorizontalAlignment="Center" Height="132" VerticalAlignment="Top" />
+            </StackPanel>
+            <StackPanel Margin="10 0 0 0" HorizontalAlignment="Center" x:Name="formCadastroBolao2" RelativePanel.Below="formCadastroBolao1">
+                <CalendarDatePicker x:Name="cdpDataInicio" Header="Data de início" PlaceholderText="dd/mm/aaaa" Width="300px"/>
+                <ComboBox ItemsSource="{x:Bind times}" Header="Campeonato" PlaceholderText="Selecione" Width="360"></ComboBox>
+            </StackPanel>
+            <StackPanel x:Name="formCadastroBtns" Orientation="Horizontal" Margin="20 0 0 -80" RelativePanel.AlignBottomWith="formCadastroBolao2">
+                <Button Content="Cadastrar" Margin="0 0 10 0" Tag="Cadastrar" Click="SalvarButton_Click"/>
+                <Button Content="Cancelar" Margin="0 0 0 0" Tag="Cancelar" Click="CancelarButton_Click"/>
+            </StackPanel>
+        </RelativePanel>
     </Grid>
 </Page>
